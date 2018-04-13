@@ -6,7 +6,9 @@
 <% end %>
 
 <% if current_user %>
-  <p>You are signed in as </p><%= current_user.name %>
+  <p>You are signed in as <%= current_user.name %></p>
+  <%= link_to 'Enter chat room', chat_index_path %>
+
   <%= button_to :sing_out, sessions_path, {  method: :delete } %>
 <% else %>
   <%= form_with url: sessions_path, local: true do |f|  %>
