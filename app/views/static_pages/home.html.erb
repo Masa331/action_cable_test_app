@@ -1,2 +1,17 @@
-<h1>Toto je chat</h1>
-<p>Vitej!</p>
+<h1>Hi, this is some chat</h1>
+<p>Welcome! Sign-in with form below in order to enter chat room.</p>
+
+<% if flash[:alert].present? %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<% if current_user %>
+  <p>You are signed in as </p><%= current_user.name %>
+  <%= button_to :sing_out, sessions_path, {  method: :delete } %>
+<% else %>
+  <%= form_with url: sessions_path, local: true do |f|  %>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+    <%= f.submit :sign_in %>
+  <% end %>
+<% end %>
