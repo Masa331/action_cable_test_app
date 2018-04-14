@@ -6,3 +6,4 @@ This is ActionCable test app.
 - [ ] inspect Redis
 - [ ] inspect ActionCable API for FE and BE
 - [ ] local Sidekiq + Redis for ActiveJob
+- [ ] Sidekiq web gui
