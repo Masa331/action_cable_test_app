@@ -3,7 +3,13 @@ module ApplicationCable
     identified_by :current_user
 
     def connect
+      puts 'someone connected'
       self.current_user = find_verified_user
+      logger.add_tags current_user.name
+    end
+
+    def disconnect
+      puts 'someone disconnected'
     end
 
     private
