@@ -5,7 +5,11 @@ receive_func = function(data) {
   $msgList.append(p)
 };
 
-App.chat = App.cable.subscriptions.create('ChatChannel', { received: receive_func })
+connected_func = function(data) {
+  console.log('lol blah blah blah');
+};
+
+App.chat = App.cable.subscriptions.create('ChatChannel', { connected: connected_func, received: receive_func })
 
 $(document).ready(function() {
   form = $('#msg-form');
